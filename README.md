@@ -72,9 +72,10 @@ Given a claim, your system must:
 2. **Classify** the claim based on the retrieved evidence into one of the following labels:  
    `{SUPPORTS, REFUTES, NOT_ENOUGH_INFO, DISPUTED}`  
 
+More concretely, you will be provided a list of claims and a corpus containing a large number of evidence passages (the “knowledge source”), and your system must: (1) search for the most related evidence passages from the knowledge source given the claim; and (2) classify the status of the claim given the evidence in the following 4 classes: {SUPPORTS, REFUTES, NOT_ENOUGH_INFO, DISPUTED}. 
+
 To build a successful system, it must be able to retrieve the correct set of evidence passages and classify the claim correctly.
 
-More concretely, you will be provided a list of claims and a corpus containing a large number evidence passages (the “knowledge source”), and your system must: (1) search for the most related evidence passages from the knowledge source given the claim; and (2) classify the status of the claim given the evidence in the following 4 classes: {SUPPORTS, REFUTES, NOT_ENOUGH_INFO, DISPUTED}. To build a successful system, it must be able to retrieve the correct set of evidence passages and classify the claim correctly.
 
 Besides system implementation, you must also write a report that describes your fact-checking system, e.g. how the retrieval and classification components work, the reason behind the choices you made and the system’s performance. We hope that you will enjoy the project. To make it more engaging, **we will run the task as a leaderboard (participation is optional; more details below)**. You will be competing with other students in the class. The following sections give more details on the data format, system evaluation, grading scheme and use of the leaderboard. Your assessment will be graded based on your report, and your code.
 
@@ -335,6 +336,7 @@ A strong report not only presents results, but also provides clear insight into 
 | **Total**  |   |  | **35**  |
 
 **Note:** For projects using LLMs, marks will be awarded based on the originality of system design and the clarity of justification, rather than simply using a pretrained model.
+Submissions that rely solely on off-the-shelf models without clear system design and analysis will be considered weak.
 
 **Leaderboard**
 
