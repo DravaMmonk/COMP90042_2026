@@ -122,7 +122,7 @@ Given a claim (e.g. claim-2967), your system needs to search and retrieve a list
 - The **training set** (train-claims.json) should be used for building your models, e.g. for use in development of features, rules and heuristics, and for supervised/unsupervised learning. You are encouraged to inspect this data closely to fully understand the task.
 - The **development set** (dev-claims.json) is formatted like the training set. This will help you make major implementation decisions (e.g. choosing optimal hyper-parameter configurations), and should also be used for detailed analysis of your system — both for measuring performance and for error analysis — in the report.
 - You will use the **test set (test-claims-unlabelled.json)** to participate in the leaderboard **(optional)**. For this reason, no labels (i.e. the evidence passages and claim labels) are provided for this partition. You are allowed (and encouraged) to train your final system on both the training and development set so as to maximise performance on the test set, but you should not at any time manually inspect the test dataset; any sign that you have done so will result in loss of marks. In terms of the format of the system output, we have provided dev-claims-predictions.json for this. 
-**Note: you’ll notice that it has the same format as the labelled claim files (train-claims.json or dev-claims.json), although the claim_text field is optional (i.e. we do not use this field during evaluation) and you’re free to omit it.**
+**Note: you’ll notice that it has the same format as the labelled claim files (train-claims.json or dev-claims.json), although the claim_text field is optional (i.e. we do not use this field during evaluation) and you’re free to omit.**
 
 
 <br/>
@@ -134,39 +134,94 @@ Given a claim (e.g. claim-2967), your system needs to search and retrieve a list
 | :exclamation:  You need to put the code that you conduct all actions for this section in the [ipynb template](https://colab.research.google.com/drive/1CjlVXdEsioH_iGOHUbmrhimTLRXGJIt0?usp=sharing) |
 |-----------------------------------------|
 
-**Project Rules**
+### You MUST follow the rules below. Any team found to violate these rules will receive **zero marks** for the project.
 
-You MUST follow the rules below. Any team found to break any of these rules will receive zero marks for their project.
+### 1) Model Design
 
-1) You're encouraged to explore different models for the task. Regarding sequence processing components, you MUST use one of the following architectures: RNN, LSTM, GRU, or Transformer. You may use deep-learning libraries (e.g. PyTorch) to import these sequence processing components (i.e., you do not have to implement RNN from scratch). You should read relevant publications to guide your system design, but you MUST NOT copy any open-source code from publications (i.e., the fact-checking system must be implemented by you).
+You are encouraged to explore different models for the task.  
+Your system MUST include at least one sequence modelling component based on one of the following architectures: RNN, LSTM, GRU, Transformer.
 
-2) You are allowed to use in-context learning with open-source Large Language Models (LLMs) that can be executed within the free version of Google Colab, provided that:
-- No fine-tuning, gradient updates, or weight modifications are performed.
-- The model is open-source and can be loaded entirely on the free version of Google Colab (e.g., via CPU or available Colab GPU/TPU).
-- Models must fit within 12GB RAM and execute on a standard free-tier Colab GPU/TPU runtime without exceeding memory limits.
-- You use only the provided training data to construct prompts for in-context learning.
-- Examples of allowed use cases: prompting a small LLM (e.g., TinyLlama, DistilGPT2) via transformers or similar libraries, as long as the model fits on the free version of Google Colab and follows the above constraints.
-- You use the open-source LLMs or models published before 17 April, 2025. 
+You may use deep learning libraries (e.g., PyTorch) to implement these components (i.e., you do not need to implement them from scratch).  
 
-3) You MUST NOT use:
-- Any closed-source APIs or models (e.g., OpenAI GPT-3/4, Claude, Gemini, Copilot).
-- Any hand-crafted if-then rules for classification or prediction logic.
-
-4) The following deep-learning libraries are allowed: PyTorch, Keras, and TensorFlow. You may use Huggingface Transformers only for model loading and inference in the context of in-context learning, as per the above rules. Standard Python libraries (e.g., numpy, matplotlib) and NLP preprocessing toolkits (e.g., nltk, spacy) are also allowed.
-
-5) The model described in the report MUST be faithful to the submitted code and running log you submit. You MUST include the running log (with the reported result/performance) in the submitted ipynb file (more details about submission below). 
-
-6) You are allowed to use the code provided in the workshop, as long as it does not violate any of the above constraints. You MUST NOT use open-source project code from GitHub or other public repositories.
-
-7) YOU MUST NOT submit any results to the leaderboard that were not generated directly by your final submitted code. Any post-hoc modifications to results (e.g., manual corrections or edits outside the code) are strictly prohibited.
-
-8) You MUST NOT use models that cannot be run in the free version of Colab (e.g., models too large to load on a Colab instance).
-
-9) You MUST use the given [code template](https://colab.research.google.com/drive/1CjlVXdEsioH_iGOHUbmrhimTLRXGJIt0?usp=sharing) for development. You may extend or restructure the provided code template, but core components must be preserved for grading compatibility.
-
-10) You MUST use only the provided training and development data when building and evaluating your system.
+You are encouraged to read relevant publications to guide your design. However, **you MUST NOT directly copy open-source project code** (e.g., from GitHub or published repositories). Your system must be implemented by your team.
 
 <br/>
+
+### 2) Use of Large Language Models (LLMs)
+You are allowed to use Large Language Models (LLMs) as part of your system, provided that the following conditions are met:
+
+- **Only open-source models are allowed.**  
+  You MUST NOT use any closed-source APIs or proprietary systems (e.g., OpenAI GPT, Claude, Gemini, Copilot).
+- **Models must be runnable on the free version of Google Colab.**  
+  This means:
+  - The model must fit within standard Colab resource limits (e.g., ~12GB RAM)
+  - It must run without requiring paid APIs or external compute
+- **You may use LLMs in any way**, including:
+  - prompting / in-context learning  
+  - fine-tuning  
+  - parameter-efficient tuning (e.g., LoRA)  
+  - integration into hybrid architectures  
+- **However, your contribution must be clear and substantial.**  
+  Simply using an off-the-shelf model (e.g., prompting a pretrained LLM without modification or design justification) will **not** be sufficient for full marks.
+- You must clearly describe in your report:
+  - how the LLM is used  
+  - what design decisions you made (e.g., model selection, training strategy, system architecture) and why 
+  - and what your **technical contribution** is beyond the base model  
+
+
+### 3) Prohibited Methods
+You **MUST NOT** use:
+- Any closed-source APIs or models (e.g., OpenAI GPT-3/4, Claude, Gemini, Copilot)  
+- Any hand-crafted if-then rules for classification or prediction logic  
+
+### 4) Libraries and Code Usage
+The following libraries **are allowed**:
+- Deep learning: PyTorch, TensorFlow, Keras  
+- HuggingFace Transformers (for model loading, training, and inference)  
+- Standard Python libraries (e.g., NumPy, Matplotlib)  
+- NLP toolkits (e.g., NLTK, spaCy)
+
+You may use **the code provided in workshops** 
+
+You **MUST NOT** use external project code (e.g., copying full solutions or repositories from GitHub)
+
+
+### 5) Reproducibility
+The model described in your report **MUST match** your submitted code and results.  
+
+You MUST include:
+- Running logs  
+- Reported results  
+
+in your submitted `.ipynb` file.
+
+### 6) Integrity
+
+You **MUST NOT** submit results that were not generated by your final submitted code.  
+
+**Post-hoc modifications (e.g., manual edits to predictions)** are strictly prohibited.
+
+
+### 7) Compute Constraints
+
+You **MUST NOT** use models that cannot be run on the free version of Google Colab.
+
+
+### 8) Code Template
+
+You **MUST** use the provided [ipynb template](https://colab.research.google.com/drive/1CjlVXdEsioH_iGOHUbmrhimTLRXGJIt0?usp=sharing).  
+You **may extend or restructure it, but core components** must remain for grading.
+
+
+### 9) Data Usage
+
+You **MUST use only the provided training and development datasets** for model training, tuning, and evaluation.
+
+You **MUST NOT** use any additional external datasets for training or evaluation.
+
+The use of **pretrained open-source models (e.g., LLMs)** is allowed, provided they comply with the LLM usage rules above.
+
+
 
 
 ## <img src="https://em-content.zobj.net/source/skype/289/test-tube_1f9ea.png" width="30" /> 3. Testing and Evaluation
