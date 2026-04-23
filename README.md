@@ -42,7 +42,9 @@ The important dates for the project are as follows:
 
 All deadlines are **11:59 PM (AEST, Melbourne Time)**.
 <br/>
-**Leaderboard(Optional)** The leaderboard is optional, and will run from 1 May to 22 May 2026, 11:59PM.
+**Leaderboard (Optional)**  
+The leaderboard is optional and will run from **1 May to 22 May 2026 (11:59 PM AEST)**.
+
 
 <br/>
 
@@ -59,21 +61,34 @@ The impact of climate change on humanity is a significant concern. However, the 
 1. In his first paper on the matter, he estimated that global temperature would rise by around 5 to 6 °C (9.0 to 10.8 °F) if the quantity of CO 2 was doubled.
 2. The 1990 IPCC First Assessment Report estimated that equilibrium climate sensitivity to a doubling of CO2 lay between 1.5 and 4.5 °C (2.7 and 8.1 °F), with a "best guess in the light of current knowledge" of 2.5 °C (4.5 °F).
 
+It should not be difficult to see that the claim is not supported by the evidence passages, and assuming the source of the evidence is reliable, such a claim is misleading. 
 
-It should not be difficult to see that the claim is not supported by the evidence passages, and assuming the source of the evidence is reliable, such a claim is misleading. The challenge of the project is to develop an automated fact-checking system where, given a claim, the goal is to find related evidence passages from a knowledge source and classify whether the claim is supported by the evidence.
+### Task Description
+
+The goal of this project is to develop an automated fact-checking system.  
+Given a claim, your system must:
+
+1. **Retrieve** the most relevant evidence passages from a corpus (the *knowledge source* - evidence.json), and  
+2. **Classify** the claim based on the retrieved evidence into one of the following labels:  
+   `{SUPPORTS, REFUTES, NOT_ENOUGH_INFO, DISPUTED}`  
+
+To build a successful system, it must be able to retrieve the correct set of evidence passages and classify the claim correctly.
 
 More concretely, you will be provided a list of claims and a corpus containing a large number evidence passages (the “knowledge source”), and your system must: (1) search for the most related evidence passages from the knowledge source given the claim; and (2) classify the status of the claim given the evidence in the following 4 classes: {SUPPORTS, REFUTES, NOT_ENOUGH_INFO, DISPUTED}. To build a successful system, it must be able to retrieve the correct set of evidence passages and classify the claim correctly.
 
 Besides system implementation, you must also write a report that describes your fact-checking system, e.g. how the retrieval and classification components work, the reason behind the choices you made and the system’s performance. We hope that you will enjoy the project. To make it more engaging, **we will run the task as a leaderboard (participation is optional; more details below)**. You will be competing with other students in the class. The following sections give more details on the data format, system evaluation, grading scheme and use of the leaderboard. Your assessment will be graded based on your report, and your code.
 
 
+
+### Project Components
 You are provided with several files for the project:
 * [train-claims,dev-claims].json: JSON files for the labelled training and development set; 
 * [test-claims-unlabelled].json: JSON file for the unlabelled test set;
-* evidence.json: JSON file containing a large number of evidence passages (i.e. the “knowledge source”); 
 * dev-claims-baseline.json: JSON file containing predictions of a baseline system on the development set;
+* evidence.json: JSON file containing a number of evidence passages (i.e. the “knowledge source”); 
 * eval.py: Python script to evaluate system performance (see “Evaluation” below for more details).
 
+### Data Format
 For the labelled claim files (train-claims.json, dev-claims.json), each instance contains the claim ID, claim text, claim label (one of the four classes: {SUPPORTS, REFUTES, NOT_ENOUGH_INFO, DISPUTED}), and a list of evidence IDs. The unlabelled claim file (test-claims-unlabelled.json) has a similar structure, except that it only contains the claim ID and claim text. More concretely, the labelled claim files has the following format:
 
 ```
@@ -99,14 +114,15 @@ The list of evidence IDs (e.g. evidence-67732, evidence-572512) are drawn from t
 }
 ```
 
+Given a claim (e.g. claim-2967), your system needs to search and retrieve a list of the most relevant evidence passages from evidence.json, and classify the claim (1 out of the 4 classes mentioned above). You should retrieve at least one evidence passage. So, for each claim, your system must:
+- Retrieve **at least one** relevant evidence passage  
+- Predict the correct claim label  
 
-Given a claim (e.g. claim-2967), your system needs to search and retrieve a list of the most relevant evidence passages from evidence.json, and classify the claim (1 out of the 4 classes mentioned above). You should retrieve at least one evidence passage.
-
-The training set (train-claims.json) should be used for building your models, e.g. for use in development of features, rules and heuristics, and for supervised/unsupervised learning. You are encouraged to inspect this data closely to fully understand the task.
-
-The development set (dev-claims.json) is formatted like the training set. This will help you make major implementation decisions (e.g. choosing optimal hyper-parameter configurations), and should also be used for detailed analysis of your system — both for measuring performance and for error analysis — in the report.
-
-You will use the test set (test-claims-unlabelled.json) to participate in the leaderboard. For this reason, no labels (i.e. the evidence passages and claim labels) are provided for this partition. You are allowed (and encouraged) to train your final system on both the training and development set so as to maximise performance on the test set, but you should not at any time manually inspect the test dataset; any sign that you have done so will result in loss of marks. In terms of the format of the system output, we have provided dev-claims-predictions.json for this. Note: you’ll notice that it has the same format as the labelled claim files (train-claims.json or dev-claims.json), although the claim_text field is optional (i.e. we do not use this field during evaluation) and you’re free to omit it.
+### Data Usage Guidelines
+- The **training set** (train-claims.json) should be used for building your models, e.g. for use in development of features, rules and heuristics, and for supervised/unsupervised learning. You are encouraged to inspect this data closely to fully understand the task.
+- The **development set** (dev-claims.json) is formatted like the training set. This will help you make major implementation decisions (e.g. choosing optimal hyper-parameter configurations), and should also be used for detailed analysis of your system — both for measuring performance and for error analysis — in the report.
+- You will use the **test set (test-claims-unlabelled.json)** to participate in the leaderboard **(optional)**. For this reason, no labels (i.e. the evidence passages and claim labels) are provided for this partition. You are allowed (and encouraged) to train your final system on both the training and development set so as to maximise performance on the test set, but you should not at any time manually inspect the test dataset; any sign that you have done so will result in loss of marks. In terms of the format of the system output, we have provided dev-claims-predictions.json for this. 
+**Note: you’ll notice that it has the same format as the labelled claim files (train-claims.json or dev-claims.json), although the claim_text field is optional (i.e. we do not use this field during evaluation) and you’re free to omit it.**
 
 
 <br/>
