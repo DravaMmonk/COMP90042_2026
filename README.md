@@ -16,32 +16,31 @@ For this assignment, **your primary goal is not simply to achieve the highest pe
 
 
 **Table of Contents**
-- [0. Important Dates (Very Important!!)](https://github.com/drcarenhan/COMP90042_2025?tab=readme-ov-file#-0-important-dates)
-- [1. DataSet](https://github.com/drcarenhan/COMP90042_2025?tab=readme-ov-file#-1-dataset)
-- [2. Important Notes](https://github.com/drcarenhan/COMP90042_2025?tab=readme-ov-file#-2-important-notes)
-- [3. Model Testing](https://github.com/drcarenhan/COMP90042_2025?tab=readme-ov-file#-3-testing-and-evaluation)
-- [4. Report Writing](https://github.com/drcarenhan/COMP90042_2025?tab=readme-ov-file#-4-report-writing)
-- [5. Project Submission Method and Grading](https://github.com/drcarenhan/COMP90042_2025?tab=readme-ov-file#-5-project-submission-method-and-grading)
-- [6. Peer Review](https://github.com/drcarenhan/COMP90042_2025?tab=readme-ov-file#-6-peer-review)
-- [7. Leaderboard](https://github.com/drcarenhan/COMP90042_2025?tab=readme-ov-file#-7-leaderboard)
-- [8. FAQ](https://github.com/drcarenhan/COMP90042_2025?tab=readme-ov-file#-8-faq)
+- [0. Important Dates (Very Important!!)](https://github.com/drcarenhan/COMP90042_2026?tab=readme-ov-file#-0-important-dates)
+- [1. DataSet](https://github.com/drcarenhan/COMP90042_2026?tab=readme-ov-file#-1-dataset)
+- [2. Important Notes](https://github.com/drcarenhan/COMP90042_2026?tab=readme-ov-file#-2-important-notes)
+- [3. Model Testing](https://github.com/drcarenhan/COMP90042_2026?tab=readme-ov-file#-3-testing-and-evaluation)
+- [4. Report Writing](https://github.com/drcarenhan/COMP90042_2026?tab=readme-ov-file#-4-report-writing)
+- [5. Project Submission Method and Grading](https://github.com/drcarenhan/COMP90042_2026?tab=readme-ov-file#-5-project-submission-method-and-grading)
+- [6. Peer Review](https://github.com/drcarenhan/COMP90042_2026?tab=readme-ov-file#-6-peer-review)
+- [7. Leaderboard](https://github.com/drcarenhan/COMP90042_2026?tab=readme-ov-file#-7-leaderboard)
+- [8. FAQ](https://github.com/drcarenhan/COMP90042_2026?tab=readme-ov-file#-8-faq)
 
 <br/>
 <br/>
 
 
 ## <img src="https://em-content.zobj.net/thumbs/120/microsoft/319/calendar_1f4c5.png" width="30" /> 0. Important Dates
-The Important date for the Project can be summarised as follows:
-- **Project Specification Release Date**: 17 April 2025 
-- **Project Group Release Date**: 22 April 2025 **([The Final Project Group Link](https://docs.google.com/spreadsheets/d/1Xl6P93WVibbnHOPlWTB_o6IGEkBeYDTKR5M4ZuONeV4/edit?usp=sharing))**
-<br/><code style="color:red">~~(ONLY IF YOU HAVE any group mates in prior, please submit Project Group EOI. **NOT COMPULSORY. Project Group EOI Due Date**: 20 April 2025)~~</code>
-- **Project Final Report/Code Submission Due**:  19 May 2025 **(NO extension will be given less than 2 days before deadline)**
-- **Peer Review - Part 1 Due**:  25 May 2025 **(NO extension)** Part1 start date: 9PM Wednesday 21st May 2025
-- **Peer Review Scoring- Part 2 Due**:  28 May 2025 **(NO extension)** Part2 start date: 12AM Monday 26th May 2025
+The important dates for the project are as follows:
+- **Project Specification Release Date**: 24 April 2026 
+- **Project Group Release Date**: 25 April 2026
+- **Project Final Report & Code Submission Due**:  22 May 2026 **(NO extension will be given less than 2 days before deadline)**
+- **Peer Review - Part 1 Due**:  27 May 2026 **(NO extension)** Part1 start date: 9PM 24 May 2026
+- **Peer Review Scoring- Part 2 Due**:  29 May 2026 **(NO extension)** Part2 start date: 12AM 28 May 2026
 
 All deadlines are **11:59 PM (AEST, Melbourne Time)**.
 <br/>
-**Leaderboard(Optional)** The leaderboard is optional, and will run from 28 April to 17 May 2025, 11:59PM. The closing date is two days before the Final Submission due date.
+**Leaderboard(Optional)** The leaderboard is optional, and will run from 1 May to 22 May 2026, 11:59PM.
 
 <br/>
 
