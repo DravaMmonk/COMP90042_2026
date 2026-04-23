@@ -139,13 +139,11 @@ Given a claim (e.g. claim-2967), your system needs to search and retrieve a list
 ### 1) Model Design
 
 You are encouraged to explore different models for the task.  
-Your system MUST include at least one sequence modelling component based on one of the following architectures: RNN, LSTM, GRU, Transformer.
+Your system MUST include at least one sequence modelling component based on one of the following architectures: RNN, LSTM, GRU, or Transformer.
 
 You may use deep learning libraries (e.g., PyTorch) to implement these components (i.e., you do not need to implement them from scratch).  
 
 You are encouraged to read relevant publications to guide your design. However, **you MUST NOT directly copy open-source project code** (e.g., from GitHub or published repositories). Your system must be implemented by your team.
-
-<br/>
 
 ### 2) Use of Large Language Models (LLMs)
 You are allowed to use Large Language Models (LLMs) as part of your system, provided that the following conditions are met:
@@ -167,7 +165,7 @@ You are allowed to use Large Language Models (LLMs) as part of your system, prov
   - how the LLM is used  
   - what design decisions you made (e.g., model selection, training strategy, system architecture) and why 
   - and what your **technical contribution** is beyond the base model  
-
+- We strongly encourage designing **hybrid systems** (e.g., retrieval + LLM, or structured reasoning + LLM) rather than relying solely on a single pretrained model.
 
 ### 3) Prohibited Methods
 You **MUST NOT** use:
@@ -183,7 +181,8 @@ The following libraries **are allowed**:
 
 You may use **the code provided in workshops** 
 
-You **MUST NOT** use external project code (e.g., copying full solutions or repositories from GitHub)
+You **MUST NOT** use or submit external project implementations (e.g., copying full solutions or repositories from GitHub).
+You may refer to external resources for understanding or inspiration, but your final system must be implemented by your team.
 
 
 ### 5) Reproducibility
@@ -210,7 +209,7 @@ You **MUST NOT** use models that cannot be run on the free version of Google Col
 ### 8) Code Template
 
 You **MUST** use the provided [ipynb template](https://colab.research.google.com/drive/1CjlVXdEsioH_iGOHUbmrhimTLRXGJIt0?usp=sharing).  
-You **may extend or restructure it, but core components** must remain for grading.
+You **may extend or restructure it, but core components** must remain intact for grading compatibility.
 
 
 ### 9) Data Usage
@@ -230,8 +229,7 @@ The use of **pretrained open-source models (e.g., LLMs)** is allowed, provided t
 
 **IMPORTANT: please make sure that you check the IMPORTANT NOTES**
 
-**Testing and Leaderboard**
-
+### Evaluation Overview
 We provide a script (eval.py) for evaluating your system. This script takes two input files, the ground truth and your predictions, and computes three metrics: (1) F-score for evidence retrieval; (2) accuracy for claim classification; and (3) harmonic mean of the evidence retrieval F-score and claim classification accuracy. Shown below is the output from running predictions of a baseline system on the development set:
 
 ```
@@ -240,6 +238,7 @@ Evidence Retrieval F-score (F)    = 0.3377705627705628
 Claim Classification Accuracy (A) = 0.35064935064935066
 Harmonic Mean of F and A          = 0.3440894901357093
 ```
+### Metric Definitions
 
 The **three metrics** are computed as follows:
 
@@ -249,9 +248,11 @@ The **three metrics** are computed as follows:
 
 3. **Harmonic Mean of F and A**: computes the harmonic mean of the evidence retrieval F-score and claim classification accuracy. Note that this metric is computed at the end after we have obtained the aggregate (over all claims) F-score and accuracy. This metric is designed to assess both the retrieval and classification components of your system, and as such will be used as **the main metric for ranking systems on the leaderboard.**
 
-
 The first two metrics (F-score and accuracy) are provided to help diagnose and develop your system. While they are not used to rank your system on the leaderboard, you should document them in your report and use them to discuss the strengths/weaknesses of your system.
 
+A strong system should balance both retrieval quality and classification performance.
+
+### Baseline System
 The example prediction file, dev-claims-baseline.json, is the output of a baseline system on the development set. This file will help you understand the required file format for creating your development output (for tuning your system using eval.py) and your test output (for submission to the Leaderboard).
 
 Note that this is not a realistic baseline, and you might find that your system performs worse than it. The reason for this is that this baseline constructs its output in the following manner: (1) the claim labels are randomly selected; and (2) the set of evidence passages combines several randomly selected ground truth passages and several randomly selected passages from the knowledge source. We created such a ‘baseline’ because a true random baseline that selects a random set of evidence passages will most probably produce a zero F-score for evidence retrieval (and consequently zero for the harmonic mean of F-score and accuracy), and it won’t serve as a good diagnostic example to explain the metrics. To clarify, this baseline will not be used in any way for ranking submitted systems on the leaderboard, and is provided solely to illustrate the metrics and an example system output.
@@ -264,11 +265,12 @@ Note that this is not a realistic baseline, and you might find that your system 
 | :exclamation:  You MUST use the [ACL template](https://github.com/acl-org/acl-style-files) when writing your report.
 |-----------------------------------------|
 
-You must use LATEX for writing your report. You must include your group number under the title (using the \author field in LATEX and changing "review" to "final" to generate the final (sometimes called camera-ready) version. \usepackage[review]{acl} --> \usepackage[final]{acl}), but not your name. We will not accept reports that are longer than the stated limits below, or otherwise violate the style requirements.
+You must use LATEX for writing your report. You must include your group number under the title (using the \author field in LATEX).  
+Make sure to change the template setting from `\usepackage[review]{acl}` to `\usepackage[final]{acl}` to generate the final version. 
+We will not accept reports that are longer than the stated limits below, or otherwise violate the style requirements.
 
-The report should be submitted as a PDF and contain **no more than five(5)** A4 pages of content, excluding  team contribution and references. An appendix is NOT allowed. Therefore, you should consider carefully the information that you want to include in the report to build a coherent and concise narrative.
+The report should be submitted as a PDF and contain **no more than seven(7)** pages of content, excluding team contribution and references. An appendix is NOT allowed. Therefore, you should carefully consider the information you want to include in the report to build a coherent and concise narrative.
 
-**Click the link to check [the final Project Group Link](https://docs.google.com/spreadsheets/d/1Xl6P93WVibbnHOPlWTB_o6IGEkBeYDTKR5M4ZuONeV4/edit?usp=sharing)**
 
 -----
 Below is a suggested report structure:
@@ -290,7 +292,7 @@ Below is a suggested report structure:
 * **Experimental details**: Report how you ran your experiments (e.g., model configurations, learning rate, training time, etc.)
 
 **Results**: Report the quantitative results that you have found so far. Use a table or plot to compare results and compare against baselines. You must report dev results, and also test results if you participate in the leaderboard.
-When you write results, please be aware of the following questions: Are they what you expected?; Better than you expected?; Is It worse than you expected?; Why do you think that is?; What does that tell you about your approach?
+When analysing your results, consider the following: Are they what you expected?; Better than you expected?; Is It worse than you expected?; Why do you think that is?; What does that tell you about your approach?
 
 **Conclusion**. Summarise the main findings of your project, and what you have learnt. Highlight your achievements, and note the primary limitations of your work. If you like, you can describe avenues for future work.
 
@@ -298,89 +300,79 @@ When you write results, please be aware of the following questions: Are they wha
 
 **References** (doesn't count towards the page limit) Your references section should be produced using BibTeX.
 
-**Note that We DO NOT MARK the report if it's not a faithful description of the implemented system (i.e. the submitted system is different to what is described in the report).**
+**Important:** The report must be a faithful description of the system you implemented.  
+If there is a mismatch between the report and the submitted code, marks will be deducted.
 
-
+A strong report not only presents results, but also provides clear insight into *why* the method works (or fails).
 
 <br/>
 
 
 ## <img src="https://em-content.zobj.net/thumbs/120/whatsapp/326/envelope-with-arrow_1f4e9.png" width="30" /> 5. Project Submission Method and Grading
-**Submission:** [LMS Assignment Submission Box](https://canvas.lms.unimelb.edu.au/courses/210955/assignments) is opened. 
+**Submission:** LMS Assignment Submission Box will be opened from 28 April 2026.
 
 **You Must Submit Two Files:**
 - **pdf file** (filename format: COMP90042_teamname.pdf): a report using the [ACL template](https://github.com/acl-org/acl-style-files).
 
-- **zip file** (filename format: COMP90042_teamname_resource.zip): A zip file that contains: **1)** ipynb file(s) (You MUST use this [ipynb template](https://colab.research.google.com/drive/1CjlVXdEsioH_iGOHUbmrhimTLRXGJIt0?usp=sharing)), and **2)** a README file to describe how to run the code if it's not apparent from the documentation in the ipynb files (optional), and **3)** any shell scripts that you use to run your code, e.g. to pre-install packages (optional). Note: you MUST NOT upload any data files or trained model checkpoints.
+- **zip file** (filename format: COMP90042_teamname_resource.zip): A zip file containing:
+  1) ipynb file(s) (**You MUST use the provided [ipynb template](https://colab.research.google.com/drive/1CjlVXdEsioH_iGOHUbmrhimTLRXGJIt0?usp=sharing)**)  
+  2) a README file describing how to run the code (if it's not apparent from the documentation in the ipynb files) *(optional)*  
+  3) any shell scripts used to run your code (e.g., for package installation) *(optional)*  
+
+  **Note:** You **MUST NOT** upload any data files or trained model checkpoints. Your code must run successfully in the Colab environment and reproduce the reported results.
 
 
 **Your submissions will be graded as follows:**
 | Component  | Criteria | Description  | Marks |
 | ------------- | ------------- | ------------- | ------------- |
-| Writing  | Clarity  | Is the report well-written and well-structured?  | 5  |
+| Writing  | Clarity  | Is the report well-written and well-structured?  | 3  |
 | Writing  | Tables/Figures  | Are tables and figures interpretable and used effectively?  | 4  |
-| Content  | Soundness  | Are the experiments sound? Are methods justified and used correctly?  | 7  |
-| Content  | Substance  | How much work is done? Is there enough substance?  | 5  |
-| Content  | Novelty  | How novel or ambitious are the techniques or methods?  | 5  |
-| Content  | Results  | Are the results and findings convincing? Are they well articulated?  | 5  |
+| Content  | Soundness  | Are the methods technically sound and well-justified?  | 8  |
+| Content  | Substance  | How much work is done? Is there sufficient depth and effort?  | 5  |
+| Content  | Novelty  | How novel or ambitious are the techniques or methods? How original and well-justified are the design choices? | 5  |
+| Content  | Results  | Are the results and findings convincing? Are the results critically analysed and interpreted?  | 5  |
 | Scholarship  | Citation  | Does the report cite relevant publications to drive decision making (e.g. to motivate design choices or to support findings)?   | 4 |
 | **Total**  |   |  | **35**  |
 
+**Note:** For projects using LLMs, marks will be awarded based on the originality of system design and the clarity of justification, rather than simply using a pretrained model.
 
 **Leaderboard**
 
-The leaderboard submission is optional. There is no mark for the leaderboard.
+Participation in the leaderboard is optional and does not contribute to your final mark.
 
 <br/>
 
 
 
 ## <img src="https://em-content.zobj.net/source/whatsapp/390/clipboard_1f4cb.png" width="30" /> 6. Peer Review 
-**Peer Review is total of 8 Marks** 
-- This is different assessment from the assignment 3 - total of 35 marks (project report and code submission).
-- Please check [the assessment info from the subject handbook](https://handbook.unimelb.edu.au/subjects/comp90042/assessment)
+**Peer Review is worth a total of 8 marks.**  
+- This is a **separate assessment from Assignment 3 (35 marks** for project report and code submission).  
+- Please refer to the [subject handbook](https://handbook.unimelb.edu.au/subjects/comp90042/assessment) for full assessment details.
 
-The peer review will start **from the 21st of May to the 28th of May**. 
+The peer review will take place **from 24 May to 29 May 2026**.
 
-The peer review procedure will be shared in Week 10.
 
-Several days after the project has finished, you will also **receive 2 reports to review (peer review part 1)**. 
+**The detailed procedure will be shared in Week 10.**
 
-After the reviewing period has concluded, you will receive the reviews for your report, and you'll **need to score them (peer review part 2)**.
+After the project submission, you will:
+- **Review two reports** from other teams (Part 1)  
+- **Evaluate the reviews received for your report** (Part 2)  
 
-These are the processes in detail:
-
-**Report Submission**
-- Each team submits a report (if one of the team member submits, other members from the same team can see the submission).
-- Deadline: **11:59pm Monday 19th May 2025**
-
-**Peer Review - Part 1**
-- Each student reviews 2 reports from other teams (randomly assigned). You are required to summarise the report, talk about the strengths and weaknesses (three comment sections). See [peer_review_instruction.pdf](https://github.com/drcarenhan/COMP90042_2025/blob/main/peer_review_instruction.pdf) for more details. Note that this constitutes the first part of the third assignment, and it is an individual task, and so you don't need to collaborate with your teammates to do the reviews (your teammates will receive their reports to review).
-- Review start date: **9pm Wednesday 21st May 2025**
-- Deadline: **11:59pm Sunday 25th May 2025**
-
-**Peer Review Scoring- Part 2**
-- Each team receives a set of reviews for the team report. Each team should work together to score the reviews. See [peer-review-scoring.pdf](https://github.com/drcarenhan/COMP90042_2025/blob/main/peer-review-scoring.pdf) for more details. This is the second part of the third assignment, and it is a group task, as your team will need to distribute the reviews evenly among yourselves so that each review is scored by at least one member.
-- Review scoring start date: **12am Monday 26th May 2025**
-- Deadline: **11:59pm Wednesday 28th May 2025**
 
 
 <br/>
 
 ## <img src="https://em-content.zobj.net/source/skype/289/trophy_1f3c6.png" width="30" /> 7. Leaderboard
 
-The leaderboard submission is optional. There is no mark for the leaderboard.
-The Leaderboard link and Submission instructions will be announced on 28 April.
-
-*28 April: [Leaderboard Link](https://www.codabench.org/competitions/7707/?secret_key=62a88bc5-d1ce-4514-8e4c-033cd61c90c7)
-The instructions can be found in the leaderboard - Submission Instructions!
+Participation in the leaderboard is optional and does not contribute to your final mark.
+The Leaderboard link and Submission instructions will be announced on 1 May.
 
 <br/>
 
 ## <img src="https://em-content.zobj.net/thumbs/120/google/350/person-raising-hand_1f64b.png" width="30" /> 8. FAQ
-**The FAQ will be updated based on the student's questions.
 
-For a better and more supportive learning environment, our team summarised the FAQs based on the topic and would like to share the following posts (with our teaching team’s answer).  Please check the FAQ summary.
+The FAQ will be updated based on students’ questions.
 
-**FAQ Discussion Board Summary: [FAQ and Anwers Summary Link](https://edstem.org/au/courses/22012/discussion/2600395)**
+To support your learning, we will summarise common questions and provide answers on the discussion board.
 
+**FAQ Discussion Board Summary:** The link will be shared 2–3 days after the assignment specification release.
