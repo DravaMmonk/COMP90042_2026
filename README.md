@@ -330,9 +330,9 @@ A strong report not only presents results, but also provides clear insight into 
 | Writing  | Tables/Figures  | Are tables and figures interpretable and used effectively?  | 4  |
 | Content  | Soundness  | Are the methods technically sound and well-justified?  | 8  |
 | Content  | Substance  | How much work is done? Is there sufficient depth and effort?  | 5  |
-| Content  | Novelty  | How novel or ambitious are the techniques or methods? How original and well-justified are the design choices? | 5  |
-| Content  | Results  | Are the results and findings convincing? Are the results critically analysed and interpreted?  | 5  |
-| Scholarship  | Citation  | Does the report cite relevant publications to drive decision making (e.g. to motivate design choices or to support findings)?   | 4 |
+| Content  | Novelty  | How novel or ambitious are the techniques or methods? How original and well-justified are the design choices? | 6  |
+| Content  | Results  | Are the results and findings convincing? Are the results critically analysed and interpreted?  | 6  |
+| Scholarship  | Citation  | Does the report cite relevant publications to drive decision making (e.g. to motivate design choices or to support findings)?   | 3 |
 | **Total**  |   |  | **35**  |
 
 **Note:** For projects using LLMs, marks will be awarded based on the originality of system design and the clarity of justification, rather than simply using a pretrained model.
