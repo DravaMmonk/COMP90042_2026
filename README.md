@@ -35,8 +35,10 @@ The important dates for the project are as follows:
 - **Project Specification Release Date**: 24 April 2026 
 - **Project Group Release Date**: 25 April 2026
 - **Project Final Report & Code Submission Due**:  22 May 2026 **(NO extension will be given less than 2 days before deadline)**
-- **Peer Review - Part 1 Due**:  27 May 2026 **(NO extension)** Part1 start date: 9PM 24 May 2026
-- **Peer Review Scoring- Part 2 Due**:  29 May 2026 **(NO extension)** Part2 start date: 12AM 28 May 2026
+- **Peer Review – Part 1 Due**: 27 May 2026  
+  *(Starts: 9:00 PM, 24 May 2026 — No extension)*  
+- **Peer Review – Part 2 Due**: 29 May 2026  
+  *(Starts: 12:00 AM, 28 May 2026 — No extension)*  
 
 All deadlines are **11:59 PM (AEST, Melbourne Time)**.
 <br/>
