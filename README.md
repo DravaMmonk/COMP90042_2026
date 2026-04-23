@@ -1,13 +1,18 @@
 # COMP90042 Project Description
 
-Please check the **Lecture Recording first** if you have any questions about the Assignment 3 - Project **(Lecture 14 - Thursday, Apr 24, 2026)**
+Please check the **lecture recording first** if you have any questions about Assignment 3 – Project (**Lecture 14, Friday, 24 April 2026**).
 
-This assignment can be done in teams of three. We strongly encourage healthy collaboration. See the [University of Melbourne Working in Groups Guide](https://students.unimelb.edu.au/academic-skills/resources/communicating-in-class/communicating-with-peers/working-in-groups). 
-If your team member does not contribute, please contact the lecturer ([Dr. Caren Han](mailto:caren.han@unimelb.edu.au?subject=[COMP90042]%20Project%20Group)) and explain the situation (e.g. by describing the contributions of each collaborator in your team). We strongly recommend starting work early so that you will have ample time to discover stumbling blocks and ask questions.
+This assignment is to be completed in teams of three (3). We strongly encourage effective and respectful collaboration. Please refer to the [University of Melbourne Working in Groups Guide](https://students.unimelb.edu.au/academic-skills/resources/communicating-in-class/communicating-with-peers/working-in-groups).  
 
-You are free to design the architecture using any of the techniques learned from our lectures and labs (as long as they don't conflict with the Project Rules (see the below Important Notes Section). For training and evaluation, we provide you a benchmark dataset in a split of training, validation and test. You will use the training and validation set for training/validation while using the test set for leaderboard submission. 
+If a team member is not contributing adequately, please contact the lecturer ([Dr. Caren Han](mailto:caren.han@unimelb.edu.au?subject=[COMP90042]%20Project%20Group)) with a clear description of each member’s contributions. We strongly recommend starting early to allow sufficient time to identify challenges and seek support when needed.
 
-For this assignment, **instead of solely focusing on achieving higher performance, you should consider exploring novel architecture design and justify your decision processes**, as grading is by-and-large based on your research process rather than system performance (see grading details below).
+You are free to design your system using any of the techniques covered in lectures and labs, provided that they comply with the **Project Rules (see the Important Notes section below).**
+
+For training and evaluation, a benchmark dataset is provided with training, validation, and test splits. You should use the training and validation sets for model development and tuning, and the test set only for final leaderboard submission.
+
+For this assignment, **your primary goal is not simply to achieve the highest performance, but to demonstrate thoughtful system design and clear reasoning behind your choices**. You are encouraged to explore novel approaches, justify your design decisions, and critically analyse your results.  
+
+**NOTE: Grading will primarily focus on your research process, methodological soundness, and clarity of analysis**, rather than raw system performance (see grading details below).
 
 
 **Table of Contents**
