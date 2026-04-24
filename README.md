@@ -38,7 +38,7 @@ The important dates for the project are as follows:
 - **Peer Review – Part 1 Due**: 27 May 2026  
   *(Starts: 9:00 PM, 24 May 2026 — No extension)*  
 - **Peer Review – Part 2 Due**: 29 May 2026  
-  *(Starts: 12:00 AM, 28 May 2026 — No extension)*  
+  *(Starts: 9:00 AM, 28 May 2026 — No extension)*  
 
 All deadlines are **11:59 PM (AEST, Melbourne Time)**.
 <br/>
