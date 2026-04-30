@@ -366,8 +366,25 @@ After the project submission, you will:
 
 ## <img src="https://em-content.zobj.net/source/skype/289/trophy_1f3c6.png" width="30" /> 7. Leaderboard
 
+Competition link: https://www.codabench.org/competitions/16039/?secret_key=99e31f4a-d0b5-4514-b473-77a46db9ffae
+
+Participation in the leaderboard is **optional** and does **not** contribute to your final mark. It is provided as a public benchmark so you can see how your system compares against other teams during the project window. We strongly encourage you to take part — past students have found it a useful sanity check that their pipeline runs end-to-end on unseen data, and it makes the project a lot more fun.
+
+The leaderboard is hosted on **Codabench**. Each project team should create **one Codabench account** under a recognisable team name (the same name you use for your LMS submission) and use that single account for all of the team's submissions. Sharing accounts across teams or registering multiple accounts to evade submission caps is treated as an integrity breach under the project rules in §2.
+
+The competition runs in two phases that together span **1 May 2026 → 22 May 2026 (23:59 AEST)**:
+
+- **Phase 1 — Ongoing Evaluation (1 May → 18 May 2026 AEST).** Public leaderboard with continuous feedback. You may submit up to **5 times per day**, with a total cap of **100** submissions across the phase. Scores are computed on a held-out subset of the test set and serve as ongoing diagnostics for your system.
+- **Phase 2 — Final Evaluation (19 May → 22 May 2026 AEST).** Private leaderboard. You may submit up to **5 times per day**, with a total cap of **3** submissions. Scores are computed on the remaining (previously hidden) portion of the test set and determine your team's final position on the leaderboard.
+
+To submit, package your prediction file as a `.zip` archive containing **one file named `test-output.json`** with predictions for the **entire** unlabelled test set (`test-claims-unlabelled.json`). The format is identical to `dev-claims-baseline.json`: a JSON dictionary mapping each claim ID to an object with `claim_label` (one of `SUPPORTS`, `REFUTES`, `NOT_ENOUGH_INFO`, `DISPUTED`) and `evidences` (a non-empty list of `evidence-XXXXX` IDs); `claim_text` is optional and ignored by the scorer. Upload the zip via the **My Submissions** tab on the Codabench competition page, choosing the appropriate phase. Each submission is scored automatically; once it has finished, you can choose which completed runs to publish to the public leaderboard.
+
+The leaderboard ranks teams by the **Harmonic Mean of F and A (H_FA)**, with `F` (evidence retrieval F-score) and `A` (claim-classification accuracy) shown alongside as diagnostic columns. See §3 for the precise metric definitions.
+
+A final reminder on integrity: the same project rules from §2 apply to your leaderboard submissions. In particular, you must not manually inspect the test set, you must not use closed-source LLM APIs, and you must not hand-edit predictions after they are produced by your system. The submission you place on the leaderboard must be a faithful output of the code you submit on the LMS — any mismatch between the two will be treated as a project-rule breach.
+
 Participation in the leaderboard is optional and does not contribute to your final mark.
-The Leaderboard link and Submission instructions will be announced on 1 May.
+The Leaderboard link and Submission instructions were announced on 1 May.
 
 <br/>
 
