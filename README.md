@@ -310,7 +310,7 @@ A strong report not only presents results, but also provides clear insight into 
 
 
 ## <img src="https://em-content.zobj.net/thumbs/120/whatsapp/326/envelope-with-arrow_1f4e9.png" width="30" /> 5. Project Submission Method and Grading
-**Submission:** LMS Assignment Submission Box will be opened from 28 April 2026.
+**Submission:** LMS Assignment Submission Box will be opened from ~28 April 2026.~ --> 5 May 2026.
 
 **You Must Submit Two Files:**
 - **pdf file** (filename format: COMP90042_teamname.pdf): a report using the [ACL template](https://github.com/acl-org/acl-style-files).
@@ -336,7 +336,7 @@ A strong report not only presents results, but also provides clear insight into 
 | **Total**  |   |  | **35**  |
 
 **Note:** For projects using LLMs, marks will be awarded based on the originality of system design and the clarity of justification, rather than simply using a pretrained model.
-Submissions that rely solely on off-the-shelf models without clear system design and analysis will be considered weak.
+s that rely solely on off-the-shelf models without clear system design and analysis will be considered weak.
 
 **Leaderboard**
 
@@ -348,7 +348,7 @@ Participation in the leaderboard is optional and does not contribute to your fin
 
 ## <img src="https://em-content.zobj.net/source/whatsapp/390/clipboard_1f4cb.png" width="30" /> 6. Peer Review 
 **Peer Review is worth a total of 8 marks.**  
-- This is a **separate assessment from Assignment 3 (35 marks** for project report and code submission).  
+- This is a **separate assessment from Assignment 3 (35 marks** for project report and code ).  
 - Please refer to the [subject handbook](https://handbook.unimelb.edu.au/subjects/comp90042/assessment) for full assessment details.
 
 The peer review will take place **from 24 May to 29 May 2026**.
@@ -356,7 +356,7 @@ The peer review will take place **from 24 May to 29 May 2026**.
 
 **The detailed procedure will be shared in Week 10.**
 
-After the project submission, you will:
+After the project , you will:
 - **Review two reports** from other teams (Part 1)  
 - **Evaluate the reviews received for your report** (Part 2)  
 
@@ -370,11 +370,11 @@ Competition link: https://www.codabench.org/competitions/16039/?secret_key=99e31
 
 Participation in the leaderboard is **optional** and does **not** contribute to your final mark. It is provided as a public benchmark so you can see how your system compares against other teams during the project window. We strongly encourage you to take part — past students have found it a useful sanity check that their pipeline runs end-to-end on unseen data, and it makes the project a lot more fun.
 
-The leaderboard is hosted on **Codabench**. Each project team should create **one Codabench account** under a recognisable team name (the same name you use for your LMS submission) and use that single account for all of the team's submissions. Sharing accounts across teams or registering multiple accounts to evade submission caps is treated as an integrity breach under the project rules in §2.
+The leaderboard is hosted on **Codabench**. Each project team should create **one Codabench account** under a recognisable team name (the same name you use for your LMS ) and use that single account for all of the team's s. Sharing accounts across teams or registering multiple accounts to evade  caps is treated as an integrity breach under the project rules in §2.
 
 The competition runs in two phases that together span **1 May 2026 → 22 May 2026 (23:59 AEST)**:
 
-- **Phase 1 — Ongoing Evaluation (1 May → 18 May 2026 AEST).** Public leaderboard with continuous feedback. You may submit up to **5 times per day**, with a total cap of **100** submissions across the phase. Scores are computed on a held-out subset of the test set and serve as ongoing diagnostics for your system.
+- **Phase 1 — Ongoing Evaluation (1 May → 18 May 2026 AEST).** Public leaderboard with continuous feedback. You may submit up to **5 times per day**, with a total cap of **100** s across the phase. Scores are computed on a held-out subset of the test set and serve as ongoing diagnostics for your system.
 - **Phase 2 — Final Evaluation (19 May → 22 May 2026 AEST).** Private leaderboard. You may submit up to **5 times per day**, with a total cap of **3** submissions. Scores are computed on the remaining (previously hidden) portion of the test set and determine your team's final position on the leaderboard.
 
 To submit, package your prediction file as a `.zip` archive containing **one file named `test-output.json`** with predictions for the **entire** unlabelled test set (`test-claims-unlabelled.json`). The format is identical to `dev-claims-baseline.json`: a JSON dictionary mapping each claim ID to an object with `claim_label` (one of `SUPPORTS`, `REFUTES`, `NOT_ENOUGH_INFO`, `DISPUTED`) and `evidences` (a non-empty list of `evidence-XXXXX` IDs); `claim_text` is optional and ignored by the scorer. Upload the zip via the **My Submissions** tab on the Codabench competition page, choosing the appropriate phase. Each submission is scored automatically; once it has finished, you can choose which completed runs to publish to the public leaderboard.
